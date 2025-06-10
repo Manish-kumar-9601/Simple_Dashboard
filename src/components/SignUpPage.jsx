@@ -1,10 +1,11 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useContext, useState } from 'react';
 // For form handling and validation, you would need to install these packages:
 // npm install react-hook-form zod @hookform/resolvers
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 function BrandIcon(props) {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
@@ -26,13 +27,13 @@ export const  SignUpPage=({ onNavigate })=> {
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
     resolver: zodResolver(signUpSchema)
   });
-  const nav=useNavigate()
-
+  const navigate=useNavigate()
+  const { setIsValid} = useContext(UserContext);
   const onSubmit = (data) => {
     console.log("Form submitted successfully:", data);
-    // Here you would typically make an API call to register the user
-    // After successful registration, navigate to the dashboard:
-    nav('/')
+     setIsValid(true);
+    localStorage.setItem('isValid', 'true');
+    navigate('/')
   };
 
   return (

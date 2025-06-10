@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const navigationItems = [
-  { name: 'Home', href: '#', icon: <HomeIcon /> },
+  { name: 'Home', href: '/', icon: <HomeIcon /> },
   { name: 'Employee', href: '/employee', icon: <FeaturesIcon /> },
   { name: 'Pricing', href: '#', icon: <PricingIcon /> },
   { name: 'About', href: '#', icon: <AboutIcon /> },
@@ -63,16 +63,16 @@ function AboutIcon(props) {
  * @param {boolean} props.isSidebarOpen - Controls the visibility of the sidebar on mobile.
  */
 export function Sidebar({ isSidebarOpen }) {
-  // const navigate=useNavigate();
+ 
   return (
     // The sidebar itself. It's fixed on large screens, and uses a transform to slide in/out on mobile.
-    <aside className={`fixed top-0 left-0 z-40 w-64 h-screen bg-white shadow-xl transition-transform duration-300 ease-in-out md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+    <aside className={`absolute top-0 left-0 z-40 w-64 h-screen bg-white shadow-xl transition-transform duration-300 ease-in-out lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
       <div className="flex flex-col h-full">
         {/* Sidebar Header with Logo */}
         <div className="flex items-center justify-center h-20 border-b">
-          <a href="#" className="flex items-center space-x-2 text-indigo-600">
+          <a href="/" className="flex items-center space-x-2 text-indigo-600">
             <BrandIcon className="h-8 w-8" />
-            <span className="text-2xl font-bold text-gray-800">BrandName</span>
+            <span className="text-2xl font-bold text-gray-800">Infinity</span>
           </a>
         </div>
         
@@ -91,7 +91,7 @@ export function Sidebar({ isSidebarOpen }) {
         </nav>
         
         {/* Sidebar Footer */}
-        <div className="p-4 border-t">
+        <div className="p-4 border-t  sm:block lg:hidden md:hidden ">
           <a href="#" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center px-4 py-2.5 rounded-lg text-sm font-medium shadow-md transition-transform transform hover:scale-105 block">
             Sign Up
           </a>
