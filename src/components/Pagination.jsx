@@ -9,7 +9,7 @@ export const Pagination=({setCurrentPage,noOfPages})=>
       <div className="mb-12 inline-flex justify-center rounded bg-white p-3 shadow-[0px_1px_3px_0px_rgba(0,0,0,0.13)] dark:bg-dark-2">
         <ul className="inline-flex overflow-hidden rounded-lg border border-stroke dark:border-white/5">
           <li>
-            <button className="flex h-10 min-w-10 items-center justify-center border-r border-stroke px-2 text-base font-medium text-dark hover:bg-gray-2 dark:border-white/10 dark:text-white dark:hover:bg-white/5">
+            <button onClick={()=>setCurrentPage((prev=>prev==0?prev:prev-1 ))} className="flex h-10 min-w-10 items-center justify-center border-r border-stroke px-2 text-base font-medium text-dark hover:bg-gray-2 dark:border-white/10 dark:text-white dark:hover:bg-white/5">
               <svg
                 width="20"
                 height="21"
@@ -31,7 +31,7 @@ export const Pagination=({setCurrentPage,noOfPages})=>
 
 
   <li key={index}>
-            <button className="flex h-10 min-w-10 items-center justify-center border-r border-stroke px-2 text-base font-medium text-dark hover:bg-gray-2 dark:border-white/10 dark:text-white dark:hover:bg-white/5">
+            <button  className="flex h-10 min-w-10 items-center justify-center border-r border-stroke px-2 text-base font-medium text-dark hover:bg-gray-2 dark:border-white/10 dark:text-white dark:hover:bg-white/5">
               {page + 1}
             </button>
           </li>
@@ -40,7 +40,7 @@ export const Pagination=({setCurrentPage,noOfPages})=>
         
       
           <li>
-            <button className="flex h-10 min-w-10 items-center justify-center px-2 text-base font-medium text-dark hover:bg-gray-2 dark:border-white/10 dark:text-white dark:hover:bg-white/5">
+            <button onClick={()=>setCurrentPage(prev=>prev==noOfPages-1?prev:prev+1)} className="flex h-10 min-w-10 items-center justify-center px-2 text-base font-medium text-dark hover:bg-gray-2 dark:border-white/10 dark:text-white dark:hover:bg-white/5">
               <svg
                 width="20"
                 height="21"
